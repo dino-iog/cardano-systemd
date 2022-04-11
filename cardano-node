@@ -1,0 +1,27 @@
+#! /bin/bash
+
+./build-node/bin/cardano-node run \
+  --config marlowe-cardano/bitte/node/config/config.json \
+  --topology marlowe-cardano/bitte/node/config/topology.yaml \
+  --database-path node.db \
+  --socket-path node.socket \
+  --port 3001 \
+  $@
+
+
+# 2022-04-08 This was from mucking around with alonzo back in the fall of 2021
+
+#!/nix/store/kxj6cblcsd1qcbbxlmbswwrn89zcmgd6-bash-4.4-p23/bin/bash
+#
+# configDir="/home/dino/.config/alonzo-testnet"
+# 
+# # WARNING: If the cardano-node version changes THIS SCRIPT WILL NOT NOTICE AND MUST BE HAND-EDITED!!!
+# # This means the /nix/store/blahblah... path below
+# 
+# exec /nix/store/xbq4yynx9my6ysggvmam2a27cr5i4pgc-cardano-node-exe-cardano-node-1.30.1/bin/cardano-node run \
+#   --config "$configDir/testnet-config.json" \
+#   --database-path public-testnet/db-public-testnet \
+#   --topology "$configDir/testnet-topology.json" \
+#   --host-addr 0.0.0.0 --port 3001 \
+#   --socket-path public-testnet/node.socket \
+#   +RTS -N2 -A16m -qg -qb --disable-delayed-os-memory-return -RTS $@

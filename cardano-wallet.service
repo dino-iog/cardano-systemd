@@ -1,0 +1,14 @@
+[Unit]
+Description=Cardano wallet for Marlowe
+After=multi-user.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/dino/dev/marlowe
+ExecStart=/home/dino/dev/marlowe/build-wallet/bin/cardano-wallet serve --testnet marlowe-cardano/bitte/node/config/byron-genesis.json --database wallet.db --node-socket node.socket --port 8090
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=cardano-wallet
+
+[Install]
+WantedBy=multi-user.target

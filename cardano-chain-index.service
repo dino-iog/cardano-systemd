@@ -1,0 +1,14 @@
+[Unit]
+Description=Cardano chain index for Marlowe
+After=multi-user.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/dino/dev/marlowe
+ExecStart=/home/dino/dev/marlowe/build-chain-index/plutus-chain-index start-index --network-id 1564 --db-path chain-index.db/ci.sqlite --socket-path node.socket --port 9083
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=cardano-chain-index
+
+[Install]
+WantedBy=multi-user.target
