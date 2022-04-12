@@ -1,0 +1,7 @@
+#! /bin/bash
+
+./build-chain-index/plutus-chain-index start-index \
+  --network-id 1564 \
+  --db-path chain-index.db/ci.sqlite \
+  --socket-path node.socket \
+  --port 9083

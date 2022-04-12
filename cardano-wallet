@@ -1,0 +1,7 @@
+#! /bin/bash
+
+./build-wallet/bin/cardano-wallet serve \
+  --testnet marlowe-cardano/bitte/node/config/byron-genesis.json \
+  --database wallet.db \
+  --node-socket node.socket \
+  --port 8090

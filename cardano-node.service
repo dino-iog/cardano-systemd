@@ -5,10 +5,7 @@ After=multi-user.target
 [Service]
 Type=simple
 WorkingDirectory=/home/dino/dev/marlowe
-; ExecStart=/opt/iog/cardano-node/result/alonzo-purple/cardano-node-alonzo-purple/bin/cardano-node-alonzo-purple
 ExecStart=/home/dino/.local/bin/cardano-node
-StandardOutput=journal
-StandardError=journal
 SyslogIdentifier=cardano-node
 
 [Install]

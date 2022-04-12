@@ -1,0 +1,5 @@
+#! /bin/bash
+
+./build-run/bin/marlowe-dashboard-server webserver \
+  --network-id 1564 \
+  --config marlowe-run.json
