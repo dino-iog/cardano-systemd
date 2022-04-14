@@ -1,13 +1,14 @@
 #! /bin/bash
 
 ./build-node/bin/cardano-node run \
-  --config marlowe-cardano/bitte/node/config/config.json \
+  --config $HOME/.config/cardano-node/brian-config.json \
   --topology marlowe-cardano/bitte/node/config/topology.yaml \
   --database-path node.db \
   --socket-path node.socket \
   --port 3001 \
   $@
 
+#   --config marlowe-cardano/bitte/node/config/config.json \
 
 # 2022-04-08 This was from mucking around with alonzo back in the fall of 2021
 
