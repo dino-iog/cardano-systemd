@@ -1,0 +1,89 @@
+#! /bin/bash
+
+
+basename=$(basename "$0")
+
+
+usage=$(cat <<USAGE
+Control the marlowe-pab service
+
+usage:
+  $basename [OPTIONS] COMMAND
+
+options:
+  -h, --help  This help information
+
+commands:
+
+  start     Start marlowe-pab
+  stop      Stop marlowe-pab
+  stop-all  Stop everything (by stopping cardano-node)
+  restart   Restart marlowe-pab
+  help      This help information, same as using -h, --help
+
+The marlowe-pab daemon currently relies on three other daemons, they need to be
+brought up in this order which is handled by the systemd service unit
+dependencies.
+
+    cardano-node
+    cardano-wallet
+    cardano-chain-index
+    marlowe-pab
+
+v1.0  2022-04-14  Dino Morelli <dino.morelli@iohk.io>
+
+USAGE
+)
+
+
+warn () {
+  echo "$basename:" "$@" >&2
+}
+
+
+die () {
+  rc="$1"
+  shift
+  warn "$@"
+  exit "$rc"
+}
+
+
+# arg parsing
+
+getoptResults=$(getopt -o h --long help -n "$basename" -- "$@") \
+  || die 1 "$usage"
+
+# Note the quotes around "$getoptResults": they are essential!
+eval set -- "$getoptResults"
+
+optHelp=false
+
+while true ; do
+  case "$1" in
+    -h|--help) optHelp=true; shift;;
+    --) shift; break;;
+  esac
+done
+
+$optHelp && die 0 "$usage"
+
+if [ $# -ne 1 ]
+then
+  warn "COMMAND should be exactly one argument"
+  die 1 "$usage"
+fi
+
+command=$1
+shift
+
+case "$command" in
+  start)      set -x ; systemctl --user start marlowe-pab ;;
+  stop)       set -x ; systemctl --user stop marlowe-pab ;;
+  stop-all)   set -x ; systemctl --user stop cardano-node ;;
+  restart)    set -x ; systemctl --user restart marlowe-pab ;;
+  help)       die 0 "$usage";;
+  *)
+    warn "Invalid command: $command"
+    die 1 "$usage";;
+esac
