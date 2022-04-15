@@ -6,7 +6,6 @@ After=cardano-node.service
 
 [Service]
 Type=simple
-WorkingDirectory=/home/dino/dev/marlowe
 ExecStart=/home/dino/.local/bin/start-cardano-wallet
 SyslogIdentifier=cardano-wallet
 

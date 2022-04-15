@@ -1,5 +1,6 @@
 #! /bin/bash
 
+cd $HOME/dev/marlowe
 ./build-node/bin/cardano-node run \
   --config $HOME/.config/cardano-node/brian-config.json \
   --topology marlowe-cardano/bitte/node/config/topology.yaml \

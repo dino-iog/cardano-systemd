@@ -4,7 +4,6 @@ After=multi-user.target
 
 [Service]
 Type=simple
-WorkingDirectory=/home/dino/dev/marlowe
 ExecStart=/home/dino/.local/bin/start-marlowe-dashboard-client
 SyslogIdentifier=marlowe-dashboard-client
 

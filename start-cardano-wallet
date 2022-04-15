@@ -1,5 +1,6 @@
 #! /bin/bash
 
+cd $HOME/dev/marlowe
 ./build-wallet/bin/cardano-wallet serve \
   --testnet marlowe-cardano/bitte/node/config/byron-genesis.json \
   --database wallet.db \
