@@ -1,8 +1,10 @@
 #! /bin/bash
 
 cd $HOME/dev/marlowe
+configDir=local-cardano-service-configs
+source "$configDir/configuration.env"
 ./build-chain-index/plutus-chain-index start-index \
-  --network-id 1564 \
+  --network-id "$MAGIC" \
   --db-path chain-index.db/ci.sqlite \
   --socket-path node.socket \
-  --port 9083
+  --port "$CARDANO_CHAIN_INDEX_PORT"

@@ -1,8 +1,10 @@
 #! /bin/bash
 
 cd $HOME/dev/marlowe
+configDir=local-cardano-service-configs
+source "$configDir/configuration.env"
 ./build-wallet/bin/cardano-wallet serve \
-  --testnet marlowe-cardano/bitte/node/config/byron-genesis.json \
+  --testnet iohk-nix/cardano-lib/marlowe-dev/byron-genesis.json \
   --database wallet.db \
   --node-socket node.socket \
-  --port 8090
+  --port "$CARDANO_WALLET_PORT"
