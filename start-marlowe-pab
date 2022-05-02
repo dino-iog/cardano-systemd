@@ -3,5 +3,5 @@
 cd $HOME/dev/marlowe
 ./build-pab/bin/marlowe-pab webserver \
   --config marlowe-pab.yaml \
-  --passphrase "ridge degree vacant alter dentist ceiling daughter twin tortoise expose yellow lunch pencil orient often mask tube slogan spatial near tonight industry medal body" \
+  --passphrase "pab1234567890" \
   --verbose
