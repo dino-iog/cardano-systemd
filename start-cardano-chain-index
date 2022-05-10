@@ -4,7 +4,7 @@ cd $HOME/dev/marlowe
 configDir=local-cardano-service-configs
 source "$configDir/configuration.env"
 ./build-chain-index/plutus-chain-index start-index \
-  --network-id "$MAGIC" \
+  --network-id "$CARDANO_TESTNET_MAGIC" \
   --db-path chain-index.db/ci.sqlite \
   --socket-path node.socket \
   --port "$CARDANO_CHAIN_INDEX_PORT"
