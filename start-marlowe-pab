@@ -3,6 +3,5 @@
 cd $HOME/dev/marlowe
 ./build-pab/bin/marlowe-pab webserver \
   --config marlowe-pab.yaml \
-  --memory \
   --passphrase "fixme-allow-pass-per-wallet" \
   --verbose
