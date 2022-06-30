@@ -7,7 +7,7 @@ source "$configDir/configuration.env"
   --config node.config \
   --topology node.topology \
   --database-path node.db \
-  --socket-path node.socket \
+  --socket-path ${CARDANO_NODE_SOCKET_PATH:-node.socket} \
   --port "$CARDANO_NODE_PORT" \
   $@
 
