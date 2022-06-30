@@ -15,6 +15,7 @@ options:
 
 commands:
 
+  clean     Stop marlowe-pab and delete marlowe-db and wallet-db files
   start     Start marlowe-pab
   stop      Stop marlowe-pab
   stop-all  Stop everything (by stopping cardano-node)
@@ -30,7 +31,7 @@ dependencies.
     cardano-chain-index
     marlowe-pab
 
-v1.0  2022-04-14  Dino Morelli <dino.morelli@iohk.io>
+v1.1  2022-06-30  Dino Morelli <dino.morelli@iohk.io>
 
 USAGE
 )
@@ -78,6 +79,13 @@ command=$1
 shift
 
 case "$command" in
+  clean)
+    set -x
+    systemctl --user stop marlowe-pab
+    cd $HOME/dev/marlowe
+    rm -fv marlowe-pab.db/*
+    rm -fv wallet.db/*
+    ;;
   start)      set -x ; systemctl --user start marlowe-pab ;;
   stop)       set -x ; systemctl --user stop marlowe-pab ;;
   stop-all)   set -x ; systemctl --user stop cardano-node ;;
