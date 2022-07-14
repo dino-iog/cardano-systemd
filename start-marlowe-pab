@@ -1,7 +1,13 @@
 #! /bin/bash
 
+# This binary comes from development with `cabal build ...` in a nix shell
+# binary="./marlowe-cardano/dist-newstyle/build/x86_64-linux/ghc-8.10.7/marlowe-0.1.0.0/x/marlowe-pab/build/marlowe-pab/marlowe-pab"
+
+# This binary comes from `nix-build ...`
+binary="./build-pab/bin/marlowe-pab"
+
 cd $HOME/dev/marlowe
-./build-pab/bin/marlowe-pab webserver \
+"$binary" webserver \
   --config marlowe-pab.yaml \
   --passphrase "fixme-allow-pass-per-wallet" \
   --verbose
