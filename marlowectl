@@ -3,6 +3,9 @@
 
 basename=$(basename "$0")
 
+# Directory containing all of the marlowe development repos
+marloweDir="$HOME/dev/marlowe"
+
 
 usage=$(cat <<USAGE
 Control the marlowe-pab service
@@ -82,7 +85,7 @@ case "$command" in
   clean)
     set -x
     systemctl --user stop marlowe-pab
-    cd $HOME/dev/marlowe
+    cd "$marloweDir" || die 1 "Unable to cd into $marloweDir"
     rm -fv marlowe-pab.db/*
     rm -fv wallet.db/*
     ;;
