@@ -25,16 +25,16 @@ commands:
   restart   Restart marlowe-pab
   help      This help information, same as using -h, --help
 
-The marlowe-pab daemon currently relies on three other daemons, they need to be
-brought up in this order which is handled by the systemd service unit
-dependencies.
+The marlowe-pab daemon currently relies on three other daemons, below is the
+dependency graph enforced by the systemd units in this project.
 
-    cardano-node
-    cardano-wallet
-    cardano-chain-index
-    marlowe-pab
+             cardano-node
+               |       |
+    cardano-wallet   cardano-chain-index
+               |       |
+              marlowe-pab
 
-v1.1  2022-06-30  Dino Morelli <dino.morelli@iohk.io>
+v1.2  2022-07-20  Dino Morelli <dino.morelli@iohk.io>
 
 USAGE
 )
