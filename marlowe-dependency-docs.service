@@ -1,0 +1,12 @@
+[Unit]
+Description=Local Hoogle server of our docs
+After=multi-user.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/dino/dev/marlowe/marlowe-dependency-docs
+ExecStart=/bin/bash -c 'PATH=/home/dino/.nix-profile/bin:$PATH exec /home/dino/dev/marlowe/marlowe-dependency-docs/serve-hoogle.sh'
+SyslogIdentifier=marlowe-dependency-docs
+
+[Install]
+WantedBy=multi-user.target
