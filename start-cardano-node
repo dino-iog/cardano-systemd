@@ -1,5 +1,19 @@
 #! /bin/bash
 
+# 2022-07-20 This is for the stock cardano-node running on the public testnet
+# in the Babbage and later eras
+# cd $HOME/dev/marlowe
+# configDir=cardano-node/configuration
+# source "local-cardano-service-configs/configuration.env"
+# ./build-node/bin/cardano-node run \
+#   --config "$configDir/cardano/testnet-config.json" \
+#   --topology "$configDir/cardano/testnet-topology.json" \
+#   --database-path node.db \
+#   --socket-path ${CARDANO_NODE_SOCKET_PATH:-node.socket} \
+#   --port "$CARDANO_NODE_PORT" \
+#   $@
+
+# 2022-07-19 This was for the marlowe-specific testnets
 cd $HOME/dev/marlowe
 configDir=local-cardano-service-configs
 source "$configDir/configuration.env"
