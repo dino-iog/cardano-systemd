@@ -1,8 +1,0 @@
-#! /bin/bash
-
-cd $HOME/dev/marlowe
-configDir=local-cardano-service-configs
-source "$configDir/configuration.env"
-nix-shell marlowe-cardano/shell.nix \
-  --run "cd marlowe-cardano/marlowe-dashboard-client; spago build; npm run start"
-

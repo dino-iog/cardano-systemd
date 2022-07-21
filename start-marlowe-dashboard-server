@@ -1,8 +1,0 @@
-#! /bin/bash
-
-cd $HOME/dev/marlowe
-configDir=local-cardano-service-configs
-source "$configDir/configuration.env"
-./build-run/bin/marlowe-dashboard-server webserver \
-  --network-id "$MAGIC" \
-  --config marlowe-run.json
