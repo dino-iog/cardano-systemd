@@ -6,10 +6,11 @@ After=cardano-node.service
 
 [Service]
 Type=simple
-ExecStart=/home/dino/.local/bin/start-cardano-chain-index
+WorkingDirectory=/home/dino/dev/marlowe/marlowe-cardano
+ExecStart=/home/dino/.nix-profile/bin/nix-shell --run start-chain-index
 Restart=on-failure
 RestartSec=10s
-SyslogIdentifier=cardano-chain-index
+SyslogIdentifier=chain-index
 
 [Install]
 WantedBy=multi-user.target

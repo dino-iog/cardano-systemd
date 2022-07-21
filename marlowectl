@@ -30,11 +30,11 @@ dependency graph enforced by the systemd units in this project.
 
              cardano-node
                |       |
-    cardano-wallet   cardano-chain-index
+    cardano-wallet   chain-index
                |       |
               marlowe-pab
 
-v1.2  2022-07-20  Dino Morelli <dino.morelli@iohk.io>
+v1.3  2022-07-21  Dino Morelli <dino.morelli@iohk.io>
 
 USAGE
 )

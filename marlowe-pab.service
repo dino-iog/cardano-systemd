@@ -2,13 +2,14 @@
 Description=Marlowe PAB
 After=multi-user.target
 Requires=cardano-wallet.service
-Requires=cardano-chain-index.service
+Requires=chain-index.service
 After=cardano-wallet.service
-After=cardano-chain-index.service
+After=chain-index.service
 
 [Service]
 Type=simple
-ExecStart=/home/dino/.local/bin/start-marlowe-pab
+WorkingDirectory=/home/dino/dev/marlowe/marlowe-cardano
+ExecStart=/home/dino/.nix-profile/bin/nix-shell --run start-marlowe-pab
 Restart=on-failure
 RestartSec=10s
 SyslogIdentifier=marlowe-pab

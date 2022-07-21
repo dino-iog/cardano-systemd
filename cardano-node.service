@@ -4,7 +4,8 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/home/dino/.local/bin/start-cardano-node
+WorkingDirectory=/home/dino/dev/marlowe/marlowe-cardano
+ExecStart=/home/dino/.nix-profile/bin/nix-shell --run start-cardano-node
 SyslogIdentifier=cardano-node
 
 [Install]

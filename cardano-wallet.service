@@ -6,7 +6,8 @@ After=cardano-node.service
 
 [Service]
 Type=simple
-ExecStart=/home/dino/.local/bin/start-cardano-wallet
+WorkingDirectory=/home/dino/dev/marlowe/marlowe-cardano
+ExecStart=/home/dino/.nix-profile/bin/nix-shell --run start-cardano-wallet
 SyslogIdentifier=cardano-wallet
 
 [Install]
