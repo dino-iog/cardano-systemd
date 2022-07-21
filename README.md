@@ -1,12 +1,11 @@
 # cardano-systemd
 
-Systemd service units and scripts for the Marlowe PAB and all of its
-dependencies (cardano-node, cardano-wallet, cardano-chain-index)
+Systemd service units for the Marlowe PAB and all of its dependencies
+(cardano-node, cardano-wallet, chain-index)
 
 ## Using this project
 
-1. Copy the service files to `$HOME/.config/systemd/user/` and the scripts to
-   `$HOME/.local/bin`
+1. Copy (or symlink) the service files to `$HOME/.config/systemd/user/`
 2. Reload the user systemd daemon `$ systemctl --user daemon-reload`
 
 This project includes a control script, `marlowectl`, which provides high-level
