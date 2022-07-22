@@ -3,8 +3,7 @@
 
 basename=$(basename "$0")
 
-# Directory containing all of the marlowe development repos
-marloweDir="$HOME/dev/marlowe"
+marloweDir="${MARLOWE_DIR:-$HOME/dev/marlowe-cardano}"
 
 
 usage=$(cat <<USAGE
@@ -18,7 +17,7 @@ options:
 
 commands:
 
-  clean     Stop marlowe-pab and delete marlowe-db and wallet-db files
+  clean     Stop all services and delete \$MARLOWE_DIR/db directory contents
   start     Start marlowe-pab
   stop      Stop marlowe-pab
   stop-all  Stop everything (by stopping cardano-node)
@@ -34,7 +33,7 @@ dependency graph enforced by the systemd units in this project.
                |       |
               marlowe-pab
 
-v1.3  2022-07-21  Dino Morelli <dino.morelli@iohk.io>
+v1.4  2022-07-22  Dino Morelli <dino.morelli@iohk.io>
 
 USAGE
 )
@@ -85,9 +84,8 @@ case "$command" in
   clean)
     set -x
     systemctl --user stop marlowe-pab
-    cd "$marloweDir" || die 1 "Unable to cd into $marloweDir"
-    rm -fv marlowe-pab.db/*
-    rm -fv wallet.db/*
+    sleep 1
+    rm -rf "$marloweDir/db/"
     ;;
   start)      set -x ; systemctl --user start marlowe-pab ;;
   stop)       set -x ; systemctl --user stop marlowe-pab ;;

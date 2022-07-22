@@ -8,7 +8,7 @@ After=chain-index.service
 
 [Service]
 Type=simple
-WorkingDirectory=/home/dino/dev/marlowe/marlowe-cardano
+WorkingDirectory=/home/dino/dev/marlowe-cardano
 ExecStart=/home/dino/.nix-profile/bin/nix-shell --run start-marlowe-pab
 Restart=on-failure
 RestartSec=10s

@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=simple
-WorkingDirectory=/home/dino/dev/marlowe/marlowe-dependency-docs
+WorkingDirectory=/home/dino/dev/marlowe-dependency-docs
 ExecStart=/bin/bash -c 'PATH=/home/dino/.nix-profile/bin:$PATH exec /home/dino/dev/marlowe/marlowe-dependency-docs/serve-hoogle.sh'
 SyslogIdentifier=marlowe-dependency-docs
 
