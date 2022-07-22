@@ -5,7 +5,7 @@ tmux -T 256,focus,title \
   set pane-border-format "#{pane_index} #T" \; \
   setw remain-on-exit on \; \
   split-window "journalctl --user -u chain-index -f" \; \
-  select-pane -T "cardano-chain-index" \; \
+  select-pane -T "chain-index" \; \
   split-window -h "journalctl --user -u cardano-wallet -f" \; \
   select-pane -T "cardano-wallet" \; \
   split-window -h "journalctl --user -u cardano-node -f" \; \
